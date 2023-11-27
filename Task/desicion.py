@@ -1,3 +1,4 @@
+
 import pandas as pd
 import random
 
@@ -16,19 +17,18 @@ def one_hot_encoding1(df):
     return df.drop('whoAmI', axis=1)
 
 # Генерация данных
-random.seed(42)
-lst = ['robot'] * 10 + ['human'] * 10
+lst = ['robot'] * 10
+lst += ['human'] * 10
 random.shuffle(lst)
-data = pd.DataFrame({'whoAmI': lst})
+data = pd.DataFrame({'whoAmI':lst})
+data1 = one_hot_encoding(data)
+data2 = one_hot_encoding1(data)
 
 # Применение функций
 data1 = one_hot_encoding(data.copy())
 data2 = one_hot_encoding1(data.copy())
 
 # Вывод результатов
-print("Original DataFrame:")
 print(data)
-print("\nResult using one_hot_encoding:")
 print(data1)
-print("\nResult using one_hot_encoding1:")
 print(data2)
